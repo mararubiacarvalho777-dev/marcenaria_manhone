@@ -300,7 +300,7 @@
       <div class="family-grid" data-aos="fade-up" data-aos-delay="300">
         <div class="photo-frame">
           <div class="family-photo-container">
-            <img src="avo.png" alt="Fundador da Marcenaria Manhone" class="family-photo">
+            <img src="pai.png" alt="Fundador da Marcenaria Manhone" class="family-photo">
             <div class="family-photo-caption">
               <h4 class="font-bold text-lg">Fundador</h4>
               <p class="text-sm">Nosso patriarca, que iniciou essa jornada há 54 anos</p>
@@ -310,7 +310,7 @@
         
         <div class="photo-frame">
           <div class="family-photo-container">
-            <img src="pai.png" alt="Filho continuando o legado" class="family-photo">
+            <img src="tio.png" alt="Filho continuando o legado" class="family-photo">
             <div class="family-photo-caption">
               <h4 class="font-bold text-lg">Segunda Geração</h4>
               <p class="text-sm">Continuando o legado com a mesma dedicação</p>
@@ -320,9 +320,9 @@
         
         <div class="photo-frame">
           <div class="family-photo-container">
-            <img src="tio.png" alt="Outro filho da família" class="family-photo">
+            <img src="pai.png" alt="Outro filho da família" class="family-photo">
             <div class="family-photo-caption">
-              <h4 class="font-bold text-lg">Segunda Geração</h4>
+              <h4 class="font-bold text-lg">Terceira Geração</h4>
               <p class="text-sm">Mantendo viva a tradição familiar</p>
             </div>
           </div>
@@ -375,7 +375,7 @@
             <i class="fas fa-paint-roller"></i>
           </div>
           <h3 class="text-xl font-semibold mb-3 text-center">Restauração</h3>
-          <p class="text-center">Rejuvenescimento de móveis antidos, preservando a história e a beleza de peças com valor sentimental.</p>
+          <p class="text-center">Rejuvenescimento de móveis antigos, preservando a história e a beleza de peças com valor sentimental.</p>
         </div>
         
         <div class="service-card bg-white p-6 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="500">
@@ -391,7 +391,7 @@
             <i class="fas fa-tools"></i>
           </div>
           <h3 class="text-xl font-semibold mb-3 text-center">Instalação Profissional</h3>
-          <p class="text-center">Realizamos a instalação completa com cuidado e precisão, garantindo perfeito funcionamento e durabilidade.</p>
+          <p class="text-center">Realizamos a instalação completa com cuidado e precisão, garantindo perfeito funcionamento and durabilidade.</p>
         </div>
       </div>
     </div>
@@ -425,7 +425,7 @@
                 <a href="tel:+5511998508394" class="flex items-center gap-2 text-wood-dark hover:text-yellow-700 mb-2">
                   <i class="fas fa-phone"></i> (11) 99850-8394
                 </a>
-                <a href="https://wa.me/5511998508394" target="_blank" class="flex items-center gap-2 text-wood-dark hover:text-yellow-700">
+                <a href="https://wa.me/5511998508394?text=Olá! Vim do site e gostaria de conversar sobre móveis planejados." target="_blank" class="flex items-center gap-2 text-wood-dark hover:text-yellow-700">
                   <i class="fab fa-whatsapp"></i> Enviar mensagem
                 </a>
               </div>
@@ -446,7 +446,7 @@
                 <a href="tel:+5511944789929" class="flex items-center gap-2 text-wood-dark hover:text-yellow-700 mb-2">
                   <i class="fas fa-phone"></i> (11) 94478-9929
                 </a>
-                <a href="https://wa.me/5511944789929" target="_blank" class="flex items-center gap-2 text-wood-dark hover:text-yellow-700">
+                <a href="https://wa.me/5511944789929?text=Olá! Vim do site e gostaria de conversar sobre móveis planejados." target="_blank" class="flex items-center gap-2 text-wood-dark hover:text-yellow-700">
                   <i class="fab fa-whatsapp"></i> Enviar mensagem
                 </a>
               </div>
@@ -506,7 +506,7 @@
         
         <div class="flex gap-6">
           <a href="https://instagram.com/marcenaria.manhone" target="_blank" class="text-white hover:text-yellow-500 text-xl"><i class="fab fa-instagram"></i></a>
-          <a href="https://wa.me/5511998508394" target="_blank" class="text-white hover:text-yellow-500 text-xl"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://wa.me/5511998508394?text=Olá! Vim do site e gostaria de conversar sobre móveis planejados." target="_blank" class="text-white hover:text-yellow-500 text-xl"><i class="fab fa-whatsapp"></i></a>
         </div>
       </div>
       
@@ -556,8 +556,24 @@
           },
         },
       });
+
+      // Função para abrir WhatsApp com mensagem personalizada
+      function initWhatsAppLinks() {
+        const message = "Olá! Vim do site e gostaria de conversar sobre móveis planejados.";
+        const encodedMessage = encodeURIComponent(message);
+        
+        // Atualizar todos os links do WhatsApp
+        document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+          const href = link.getAttribute('href');
+          if (!href.includes('text=')) {
+            link.setAttribute('href', href + '?text=' + encodedMessage);
+          }
+        });
+      }
+      
+      // Inicializar os links do WhatsApp
+      initWhatsAppLinks();
     });
   </script>
 </body>
 </html>
-
