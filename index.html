@@ -33,6 +33,10 @@
       background-color: #3a2c1e;
     }
     
+    .bg-wood-medium {
+      background-color: #5d4037;
+    }
+    
     .text-wood-dark {
       color: #3a2c1e;
     }
@@ -52,10 +56,6 @@
     
     .swiper-button-next, .swiper-button-prev {
       color: #8b5a2b !important;
-    }
-    
-    .hero-overlay {
-      background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
     }
     
     .form-container {
@@ -85,6 +85,117 @@
       margin-bottom: 20px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.08);
     }
+    
+    .info-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: #8b5a2b;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 50px;
+      margin: 5px;
+      font-size: 0.9rem;
+    }
+    
+    .hero-section {
+      background-color: #5d4037; /* Marrom sólido */
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* Melhorias para o formulário */
+    .form-iframe-container {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      background: white;
+    }
+    
+    .form-iframe-container iframe {
+      display: block;
+      border: none;
+    }
+    
+    /* Estilos para as fotos da família - CORRIGIDOS */
+    .family-photo {
+      width: 100%;
+      height: 350px; /* Ajuste de altura para proporção 1:2 */
+      object-fit: cover;
+      border: 10px solid #f8f5f0;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      transition: all 0.4s ease;
+      border-radius: 4px;
+    }
+    
+    .family-photo-container {
+      position: relative;
+      margin-bottom: 25px;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+    
+    .family-photo-container::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 40%;
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: 1;
+    }
+    
+    .family-photo-container:hover::after {
+      opacity: 1;
+    }
+    
+    .family-photo-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      background: rgba(58, 44, 30, 0.9);
+      color: white;
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+      z-index: 2;
+    }
+    
+    .family-photo-container:hover .family-photo-caption {
+      transform: translateY(0);
+    }
+    
+    .family-photo-container:hover .family-photo {
+      transform: scale(1.08);
+    }
+    
+    .family-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 35px;
+      margin-top: 45px;
+    }
+    
+    /* Novo estilo para melhorar o enquadramento */
+    .photo-frame {
+      position: relative;
+      padding: 15px;
+      background: linear-gradient(145deg, #f8f5f0, #e8e5e0);
+      border-radius: 12px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .photo-frame:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
   </style>
 </head>
 <body class="bg-wood-light text-wood-dark">
@@ -107,21 +218,28 @@
     </nav>
   </header>
 
-  <!-- HERO SECTION -->
-  <section id="inicio" class="h-screen flex items-center justify-center bg-cover bg-center relative" style="background-image: url('https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');">
-    <div class="hero-overlay absolute inset-0"></div>
+  <!-- HERO SECTION - COR MARROM SÓLIDA -->
+  <section id="inicio" class="hero-section">
     <div data-aos="fade-up" class="text-center text-white z-10 px-4">
       
-      <!-- Logo - SUBSTITUA O SRC COM O CAMINHO PARA SUA IMAGEM -->
+      <!-- Logo - Use o nome exato do arquivo que você fez upload -->
       <div class="logo-container">
         <img src="Design elegante do logo MANHONE.png" alt="Logo Marcenaria Manhone" class="logo-img">
-        <!--
-          SE A IMAGEM NÃO CARREGAR, SUBSTITUA A LINHA ACIMA POR:
-          <img src="CAMINHO/COMPLETO/DA/SUA/IMAGEM/Design elegante do logo MANHONE.png" alt="Logo Marcenaria Manhone" class="logo-img">
-        -->
       </div>
       
       <p class="text-xl md:text-2xl mb-8 text-white">Transformamos sua visão em móveis únicos e funcionais</p>
+      
+      <!-- Informações importantes -->
+      <div class="bg-black bg-opacity-50 p-6 rounded-lg mb-8" data-aos="fade-up" data-aos-delay="300">
+        <div class="flex flex-wrap justify-center gap-2 mb-4">
+          <span class="info-badge"><i class="fas fa-calendar-alt"></i> 54 anos no ramo moveleiro</span>
+          <span class="info-badge"><i class="fas fa-star"></i> Qualidade garantida</span>
+          <span class="info-badge"><i class="fas fa-credit-card"></i> Parcelamento no cartão</span>
+        </div>
+        <p class="text-white mb-2"><i class="fas fa-map-marker-alt mr-2"></i> Rua Pretoria 28 - Vila Formosa, São Paulo, Brazil 03416000</p>
+        <p class="text-white"><i class="fas fa-tools mr-2"></i> Móveis planejados em geral</p>
+      </div>
+      
       <a href="#contato" class="bg-yellow-700 hover:bg-yellow-800 text-white px-8 py-3 rounded-lg text-lg font-semibold transition-colors">Solicite um Orçamento</a>
     </div>
   </section>
@@ -139,7 +257,7 @@
                 <i class="fas fa-history"></i>
               </div>
               <h3 class="text-xl font-semibold mb-4">História</h3>
-              <p class="flex-grow">Há mais de 30 anos, nossa família iniciou a marcenaria com paixão e dedicação, criando peças que unem tradição e inovação.</p>
+              <p class="flex-grow">Há mais de 54 anos, nossa família iniciou a marcenaria com paixão e dedicação, criando peças que unem tradição e inovação.</p>
             </div>
           </div>
 
@@ -169,13 +287,52 @@
                 <i class="fas fa-lightbulb"></i>
               </div>
               <h3 class="text-xl font-semibold mb-4">Inovação</h3>
-              <p class="flex-grow">Unimos tecnologia и традиция para oferecer soluções modernas e inteligentes, sempre respeitando o material e o cliente.</p>
+              <p class="flex-grow">Unimos tecnologia e tradição para oferecer soluções modernas e inteligentes, sempre respeitando o material e o cliente.</p>
             </div>
           </div>
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-pagination mt-4"></div>
+      </div>
+
+      <!-- Galeria de fotos da família - ENQUADRAMENTO CORRIGIDO -->
+      <div class="family-grid" data-aos="fade-up" data-aos-delay="300">
+        <div class="photo-frame">
+          <div class="family-photo-container">
+            <img src="avo.png" alt="Fundador da Marcenaria Manhone" class="family-photo">
+            <div class="family-photo-caption">
+              <h4 class="font-bold text-lg">Fundador</h4>
+              <p class="text-sm">Nosso patriarca, que iniciou essa jornada há 54 anos</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="photo-frame">
+          <div class="family-photo-container">
+            <img src="pai.png" alt="Filho continuando o legado" class="family-photo">
+            <div class="family-photo-caption">
+              <h4 class="font-bold text-lg">Segunda Geração</h4>
+              <p class="text-sm">Continuando o legado com a mesma dedicação</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="photo-frame">
+          <div class="family-photo-container">
+            <img src="tio.png" alt="Outro filho da família" class="family-photo">
+            <div class="family-photo-caption">
+              <h4 class="font-bold text-lg">Segunda Geração</h4>
+              <p class="text-sm">Mantendo viva a tradição familiar</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="mt-12 text-center" data-aos="fade-up">
+        <p class="text-lg italic max-w-3xl mx-auto">
+          "Nossa família dedica-se há mais de cinco décadas à arte da marcenaria, transformando madeira em sonhos e mantendo viva a tradição que nosso fundador começou em 1970."
+        </p>
       </div>
     </div>
   </section>
@@ -210,7 +367,7 @@
             <i class="fas fa-building"></i>
           </div>
           <h3 class="text-xl font-semibold mb-3 text-center">Projetos Comerciais</h3>
-          <p class="text-center">Móveis corporativos, lojas, restaurantes e espaços comerciais com design que valoriza sua marca.</p>
+          <p class="text-center">Móveis corporativos, lojas, restaurantes e espaços comerciais e industriais com design que valoriza sua marca.</p>
         </div>
         
         <div class="service-card bg-white p-6 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="400">
@@ -218,7 +375,7 @@
             <i class="fas fa-paint-roller"></i>
           </div>
           <h3 class="text-xl font-semibold mb-3 text-center">Restauração</h3>
-          <p class="text-center">Rejuvenescimento de móveis antigos, preservando a história e a beleza de peças com valor sentimental.</p>
+          <p class="text-center">Rejuvenescimento de móveis antidos, preservando a história e a beleza de peças com valor sentimental.</p>
         </div>
         
         <div class="service-card bg-white p-6 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="500">
@@ -306,14 +463,18 @@
                   <a href="https://instagram.com/marcenaria.manhone" target="_blank" class="hover:text-yellow-700">@marcenaria.manhone</a>
                 </div>
               </div>
-              
+            </div>
+            
+            <!-- Informações de localização -->
+            <div class="mt-6 pt-6 border-t border-gray-300">
               <div class="flex items-center gap-4">
                 <div class="bg-yellow-700 text-white p-3 rounded-full">
-                  <i class="fas fa-envelope text-lg"></i>
+                  <i class="fas fa-map-marker-alt text-lg"></i>
                 </div>
                 <div>
-                  <p class="font-semibold">E-mail</p>
-                  <a href="mailto:contato@marcenariamanhone.com.br" class="hover:text-yellow-700">contato@marcenariamanhone.com.br</a>
+                  <p class="font-semibold">Endereço</p>
+                  <p>Rua Pretoria 28 - Vila Formosa</p>
+                  <p>São Paulo, Brazil 03416000</p>
                 </div>
               </div>
             </div>
@@ -321,10 +482,10 @@
         </div>
         
         <div class="w-full lg:w-2/3" data-aos="fade-left">
-          <div class="form-container shadow-md">
-            <!-- Formulário do Google -->
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScceErGpkhexP_0-Q8CAIYyH9gtFhwLwWELw03iCT4xpb1Bhg/viewform?embedded=true" 
-                    width="100%" height="700" frameborder="0" marginheight="0" marginwidth="0">
+          <div class="form-iframe-container">
+            <!-- Formulário do Google com altura ajustada -->
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScceErGpkhexP_0-Q8CAIYyH9gtFhwLwWELw03iCT4xpb1Bhg/viewform?embedded=true&hl=pt-BR" 
+                    width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">
               Carregando…
             </iframe>
           </div>
@@ -339,7 +500,8 @@
       <div class="flex flex-col md:flex-row justify-between items-center">
         <div class="mb-6 md:mb-0">
           <h3 class="text-2xl font-bold"><span class="text-yellow-500">Marcenaria</span> Manhone</h3>
-          <p class="mt-2">Transformando madeira em sonhos desde 1990</p>
+          <p class="mt-2">Transformando madeira em sonhos desde 1970</p>
+          <p class="mt-1 text-sm">Rua Pretoria 28 - Vila Formosa, São Paulo, Brazil 03416000</p>
         </div>
         
         <div class="flex gap-6">
@@ -398,3 +560,4 @@
   </script>
 </body>
 </html>
+
