@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marcenaria Manhone</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- SwiperJS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <!-- AOS Animate -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      scroll-behavior: smooth;
+    }
+    
+    .bg-wood-light {
+      background-color: #f8f5f0;
+    }
+    
+    .bg-wood-dark {
+      background-color: #3a2c1e;
+    }
+    
+    .text-wood-dark {
+      color: #3a2c1e;
+    }
+    
+    .service-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .swiper-pagination-bullet-active {
+      background-color: #8b5a2b !important;
+    }
+    
+    .swiper-button-next, .swiper-button-prev {
+      color: #8b5a2b !important;
+    }
+    
+    .hero-overlay {
+      background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+    }
+    
+    .form-container {
+      background-color: #f8f5f0;
+      border-radius: 12px;
+      padding: 2rem;
+    }
+    
+    .logo-container {
+      max-width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+    
+    .logo-img {
+      max-width: 380px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+    
+    .contact-person {
+      background-color: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+  </style>
+</head>
+<body class="bg-wood-light text-wood-dark">
+
+  <!-- NAVBAR -->
+  <header class="fixed w-full top-0 left-0 bg-white shadow-md z-50">
+    <nav class="container mx-auto flex justify-between items-center py-4 px-6">
+      <div class="text-xl font-bold text-wood-dark">
+        <span class="text-yellow-700">Marcenaria</span> Manhone
+      </div>
+      <div class="hidden md:flex gap-8 text-lg font-medium">
+        <a href="#inicio" class="hover:text-yellow-700 transition-colors">Início</a>
+        <a href="#quemsomos" class="hover:text-yellow-700 transition-colors">Sobre Nós</a>
+        <a href="#servicos" class="hover:text-yellow-700 transition-colors">Serviços</a>
+        <a href="#contato" class="hover:text-yellow-700 transition-colors">Contato</a>
+      </div>
+      <div class="md:hidden text-2xl">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="inicio" class="h-screen flex items-center justify-center bg-cover bg-center relative" style="background-image: url('https://images.unsplash.com/photo-1594026112284-02bb6f3352fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');">
+    <div class="hero-overlay absolute inset-0"></div>
+    <div data-aos="fade-up" class="text-center text-white z-10 px-4">
+      
+      <!-- Logo - SUBSTITUA O SRC COM O CAMINHO PARA SUA IMAGEM -->
+      <div class="logo-container">
+        <img src="Design elegante do logo MANHONE.png" alt="Logo Marcenaria Manhone" class="logo-img">
+        <!--
+          SE A IMAGEM NÃO CARREGAR, SUBSTITUA A LINHA ACIMA POR:
+          <img src="CAMINHO/COMPLETO/DA/SUA/IMAGEM/Design elegante do logo MANHONE.png" alt="Logo Marcenaria Manhone" class="logo-img">
+        -->
+      </div>
+      
+      <p class="text-xl md:text-2xl mb-8 text-white">Transformamos sua visão em móveis únicos e funcionais</p>
+      <a href="#contato" class="bg-yellow-700 hover:bg-yellow-800 text-white px-8 py-3 rounded-lg text-lg font-semibold transition-colors">Solicite um Orçamento</a>
+    </div>
+  </section>
+
+  <!-- SOBRE NÓS -->
+  <section id="quemsomos" class="py-20 px-6 bg-white">
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold mb-16 text-center" data-aos="fade-up">Nossa História</h2>
+
+      <div class="swiper w-full max-w-6xl mx-auto" data-aos="fade-left">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <div class="bg-wood-light p-8 rounded-xl shadow-lg h-full flex flex-col">
+              <div class="text-4xl text-yellow-700 mb-4">
+                <i class="fas fa-history"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-4">História</h3>
+              <p class="flex-grow">Há mais de 30 anos, nossa família iniciou a marcenaria com paixão e dedicação, criando peças que unem tradição e inovação.</p>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="bg-wood-light p-8 rounded-xl shadow-lg h-full flex flex-col">
+              <div class="text-4xl text-yellow-700 mb-4">
+                <i class="fas fa-hands"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-4">Tradição</h3>
+              <p class="flex-grow">De geração em geração, mantemos o cuidado artesanal em cada detalhe, honrando as técnicas tradicionais da marcenaria.</p>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="bg-wood-light p-8 rounded-xl shadow-lg h-full flex flex-col">
+              <div class="text-4xl text-yellow-700 mb-4">
+                <i class="fas fa-bullseye"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-4">Missão</h3>
+              <p class="flex-grow">Nosso propósito é transformar sonhos em móveis planejados e duradouros, que acompanham histórias por gerações.</p>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="bg-wood-light p-8 rounded-xl shadow-lg h-full flex flex-col">
+              <div class="text-4xl text-yellow-700 mb-4">
+                <i class="fas fa-lightbulb"></i>
+              </div>
+              <h3 class="text-xl font-semibold mb-4">Inovação</h3>
+              <p class="flex-grow">Unimos tecnologia и традиция para oferecer soluções modernas e inteligentes, sempre respeitando o material e o cliente.</p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination mt-4"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVIÇOS -->
+  <section id="servicos" class="py-20 px-6 bg-wood-light">
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold mb-4 text-center" data-aos="fade-up">Nossos Serviços</h2>
+      <p class="max-w-2xl mx-auto text-center text-lg mb-16" data-aos="fade-right">
+        Móveis planejados, restauração e design sob medida. Trabalhamos lado a lado com você para transformar suas ideias em realidade.
+      </p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="service-card bg-white p-6 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="100">
+          <div class="text-4xl text-yellow-700 mb-4 text-center">
+            <i class="fas fa-couch"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-center">Móveis Sob Medida</h3>
+          <p class="text-center">Criamos móveis exclusivos perfeitamente adaptados ao seu espaço e necessidades, com design personalizado.</p>
+        </div>
+        
+        <div class="service-card bg-white p-6 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="200">
+          <div class="text-4xl text-yellow-700 mb-4 text-center">
+            <i class="fas fa-home"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-center">Projetos Residenciais</h3>
+          <p class="text-center">Cozinhas, dormitórios, salas e banheiros planejados com funcionalidade e estilo que refletem sua personalidade.</p>
+        </div>
+        
+        <div class="service-card bg-white p-6 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="300">
+          <div class="text-4xl text-yellow-700 mb-4 text-center">
+            <i class="fas fa-building"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-center">Projetos Comerciais</h3>
+          <p class="text-center">Móveis corporativos, lojas, restaurantes e espaços comerciais com design que valoriza sua marca.</p>
+        </div>
+        
+        <div class="service-card bg-white p-6 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="400">
+          <div class="text-4xl text-yellow-700 mb-4 text-center">
+            <i class="fas fa-paint-roller"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-center">Restauração</h3>
+          <p class="text-center">Rejuvenescimento de móveis antigos, preservando a história e a beleza de peças com valor sentimental.</p>
+        </div>
+        
+        <div class="service-card bg-white p-6 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="500">
+          <div class="text-4xl text-yellow-700 mb-4 text-center">
+            <i class="fas fa-vector-square"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-center">Design de Interiores</h3>
+          <p class="text-center">Consultoria especializada para harmonizar seus móveis com o ambiente, criando espaços aconchegantes e funcionais.</p>
+        </div>
+        
+        <div class="service-card bg-white p-6 rounded-xl shadow-md" data-aos="fade-up" data-aos-delay="600">
+          <div class="text-4xl text-yellow-700 mb-4 text-center">
+            <i class="fas fa-tools"></i>
+          </div>
+          <h3 class="text-xl font-semibold mb-3 text-center">Instalação Profissional</h3>
+          <p class="text-center">Realizamos a instalação completa com cuidado e precisão, garantindo perfeito funcionamento e durabilidade.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato" class="py-20 px-6 bg-white">
+    <div class="container mx-auto">
+      <h2 class="text-3xl font-bold mb-4 text-center" data-aos="fade-up">Entre em Contato</h2>
+      <p class="max-w-2xl mx-auto text-center text-lg mb-16" data-aos="fade-up">
+        Estamos à disposição para transformar suas ideias em projetos concretos. Solicite um orçamento ou tire suas dúvidas.
+      </p>
+      
+      <div class="flex flex-col lg:flex-row gap-10 items-start">
+        <div class="w-full lg:w-1/3" data-aos="fade-right">
+          <div class="bg-wood-light p-8 rounded-xl shadow-md">
+            <h3 class="text-xl font-semibold mb-6 text-center">Contato dos Nossos Marceneiros</h3>
+            
+            <!-- Contato Ricardo -->
+            <div class="contact-person">
+              <div class="flex items-center gap-4 mb-3">
+                <div class="bg-yellow-700 text-white p-3 rounded-full">
+                  <i class="fas fa-user text-lg"></i>
+                </div>
+                <div>
+                  <p class="font-semibold text-lg">Ricardo Manhone</p>
+                  <p class="text-sm">Especialista em móveis planejados</p>
+                </div>
+              </div>
+              <div class="mt-3">
+                <a href="tel:+5511998508394" class="flex items-center gap-2 text-wood-dark hover:text-yellow-700 mb-2">
+                  <i class="fas fa-phone"></i> (11) 99850-8394
+                </a>
+                <a href="https://wa.me/5511998508394" target="_blank" class="flex items-center gap-2 text-wood-dark hover:text-yellow-700">
+                  <i class="fab fa-whatsapp"></i> Enviar mensagem
+                </a>
+              </div>
+            </div>
+            
+            <!-- Contato Carlos -->
+            <div class="contact-person">
+              <div class="flex items-center gap-4 mb-3">
+                <div class="bg-yellow-700 text-white p-3 rounded-full">
+                  <i class="fas fa-user text-lg"></i>
+                </div>
+                <div>
+                  <p class="font-semibold text-lg">Carlos Manhone</p>
+                  <p class="text-sm">Especialista em projetos sob medida</p>
+                </div>
+              </div>
+              <div class="mt-3">
+                <a href="tel:+5511944789929" class="flex items-center gap-2 text-wood-dark hover:text-yellow-700 mb-2">
+                  <i class="fas fa-phone"></i> (11) 94478-9929
+                </a>
+                <a href="https://wa.me/5511944789929" target="_blank" class="flex items-center gap-2 text-wood-dark hover:text-yellow-700">
+                  <i class="fab fa-whatsapp"></i> Enviar mensagem
+                </a>
+              </div>
+            </div>
+            
+            <!-- Redes Sociais -->
+            <div class="mt-6 pt-6 border-t border-gray-300">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="bg-yellow-700 text-white p-3 rounded-full">
+                  <i class="fab fa-instagram text-lg"></i>
+                </div>
+                <div>
+                  <p class="font-semibold">Instagram</p>
+                  <a href="https://instagram.com/marcenaria.manhone" target="_blank" class="hover:text-yellow-700">@marcenaria.manhone</a>
+                </div>
+              </div>
+              
+              <div class="flex items-center gap-4">
+                <div class="bg-yellow-700 text-white p-3 rounded-full">
+                  <i class="fas fa-envelope text-lg"></i>
+                </div>
+                <div>
+                  <p class="font-semibold">E-mail</p>
+                  <a href="mailto:contato@marcenariamanhone.com.br" class="hover:text-yellow-700">contato@marcenariamanhone.com.br</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="w-full lg:w-2/3" data-aos="fade-left">
+          <div class="form-container shadow-md">
+            <!-- Formulário do Google -->
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScceErGpkhexP_0-Q8CAIYyH9gtFhwLwWELw03iCT4xpb1Bhg/viewform?embedded=true" 
+                    width="100%" height="700" frameborder="0" marginheight="0" marginwidth="0">
+              Carregando…
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-wood-dark text-white py-12">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0">
+          <h3 class="text-2xl font-bold"><span class="text-yellow-500">Marcenaria</span> Manhone</h3>
+          <p class="mt-2">Transformando madeira em sonhos desde 1990</p>
+        </div>
+        
+        <div class="flex gap-6">
+          <a href="https://instagram.com/marcenaria.manhone" target="_blank" class="text-white hover:text-yellow-500 text-xl"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/5511998508394" target="_blank" class="text-white hover:text-yellow-500 text-xl"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+        <p>&copy; 2025 Marcenaria Manhone - Todos os direitos reservados</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Inicializar AOS
+    document.addEventListener('DOMContentLoaded', function() {
+      AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100
+      });
+      
+      // Inicializar Swiper
+      const swiper = new Swiper('.swiper', {
+        loop: true,
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+        },
+      });
+    });
+  </script>
+</body>
+</html>
